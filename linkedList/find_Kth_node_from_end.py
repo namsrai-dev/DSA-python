@@ -25,34 +25,37 @@ class LinkedList:
 def find_kth_from_end(list, index):
     fast_pointer = list.head
     slow_pointer = list.head
-    is_found = False
+
+    for i in range(index-1):
+        if fast_pointer.next:
+            fast_pointer = fast_pointer.next
+        else:
+            return None
+
     while fast_pointer.next:
-        print("fast_pointer.value", fast_pointer.value)
-        if fast_pointer.value == index and fast_pointer.next:
-            print("True")
-            is_found = True
+        slow_pointer = slow_pointer.next
         fast_pointer = fast_pointer.next
-        if is_found:
-            slow_pointer = slow_pointer.next
 
-
-
-    return slow_pointer if is_found else None
+    return slow_pointer
 
 
 
 
-my_linked_list = LinkedList()
-# my_linked_list.append(2)
-# my_linked_list.append(3)
-# my_linked_list.append(4)
-# my_linked_list.append(5)
+
+my_linked_list = LinkedList(1)
+my_linked_list.append(2)
+my_linked_list.append(3)
+my_linked_list.append(4)
+my_linked_list.append(5)
 
 
-k = 5
+k = 2
 result = find_kth_from_end(my_linked_list, k)
 
-# print(result.value)  # Output: 4
+if result.value:
+    print(result.value)  # Output: 4
+else:
+    print(result)
 
 
 
