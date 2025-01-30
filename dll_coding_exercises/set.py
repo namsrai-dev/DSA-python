@@ -83,6 +83,12 @@ class DoublyLinkedList:
                 temp = temp.prev
         return temp
 
+    def set_value(self, index, value):
+        val = self.get(index)
+        if val is not None:
+            val.value = value
+        return val
+
     ## WRITE SET_VALUE METHOD HERE ##
     #                               #
     #                               #
@@ -101,7 +107,7 @@ my_doubly_linked_list.append(7)
 print('DLL before set_value():')
 my_doubly_linked_list.print_list()
 
-my_doubly_linked_list.set_value(1,4)
+my_doubly_linked_list.set_value(0,4)
 
 print('\nDLL after set_value():')
 my_doubly_linked_list.print_list()
