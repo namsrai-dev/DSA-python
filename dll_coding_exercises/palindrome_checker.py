@@ -30,6 +30,21 @@ class DoublyLinkedList:
         self.length += 1
         return True
 
+    def is_palindrome(self):
+        is_pal = True
+        for i in range(self.length // 2):
+            temp_head = self.head
+            temp_tail = self.tail
+            for j in range(i):
+                temp_head = temp_head.next
+                temp_tail = temp_tail.prev
+
+            if temp_head.value != temp_tail.value:
+                is_pal = False
+            print(i)
+
+        return is_pal
+
     # WRITE IS_PALINDROME METHOD HERE #
     #                                 #
     #                                 #
