@@ -53,8 +53,8 @@ def is_balanced_parentheses(str):
         elif stack.pop() is None:
             return False
 
-    # if stack.is_empty() is not True:
-        # ret = False
+    if stack.is_empty() is not True:
+        ret = False
 
     return ret
 
