@@ -29,13 +29,17 @@ class Stack:
 
 def sort_stack(my_stack: Stack):
     new_stack = Stack()
-    # temp = my_stack.pop()
+    stack2 = my_stack
     for i in range(len(my_stack.stack_list)):
         min = get_min(my_stack)
         new_stack.push(min)
-        for j in my_stack.stack_list:
-            # if j
-            pass
+        arr = []
+        for j in stack2.stack_list:
+            if j != min:
+                arr.append(j)
+        stack2.stack_list = arr
+
+    my_stack.stack_list = new_stack.stack_list
 
 
 def get_min(my_stack: Stack):
