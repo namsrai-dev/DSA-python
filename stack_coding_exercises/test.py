@@ -27,19 +27,19 @@ class Stack:
         else:
             return self.stack_list.pop()
 
-def sort_stack(my_stack: Stack):
-    new_stack = Stack()
-    stack2 = my_stack
-    for i in range(len(my_stack.stack_list)):
-        min = get_min(my_stack)
-        new_stack.push(min)
-        arr = []
-        for j in stack2.stack_list:
-            if j != min:
-                arr.append(j)
-        stack2.stack_list = arr
+# def sort_stack(my_stack: Stack):
+#     new_stack = Stack()
+#     stack2 = my_stack
+#     for i in range(len(my_stack.stack_list)):
+#         min = get_min(my_stack)
+#         new_stack.push(min)
+#         arr = []
+#         for j in stack2.stack_list:
+#             if j != min:
+#                 arr.append(j)
+#         stack2.stack_list = arr
 
-    my_stack.stack_list = new_stack.stack_list
+#     my_stack.stack_list = new_stack.stack_list
 
 
 def get_min(my_stack: Stack):
@@ -51,6 +51,23 @@ def get_min(my_stack: Stack):
 
 
 
+def sort_stack(stack):
+    print("srot stack called 111")
+    additional_stack = Stack()
+
+    while not stack.is_empty():
+        temp = stack.pop()
+        print("temp is", temp)
+        print(additional_stack.stack_list)
+
+
+        while not additional_stack.is_empty() and additional_stack.peek() > temp:
+            stack.push(additional_stack.pop())
+
+        additional_stack.push(temp)
+
+    while not additional_stack.is_empty():
+        stack.push(additional_stack.pop())
 
 
 
@@ -81,21 +98,6 @@ sort_stack(my_stack)
 print("\nStack after sort_stack:")
 my_stack.print_stack()
 
-def sort_stack(stack):
-    print("srot stack called 111")
-    # additional_stack = Stack()
-
-    # while not stack.is_empty():
-    #     temp = stack.pop()
-    #     print("temp is", temp)
-
-    #     while not additional_stack.is_empty() and additional_stack.peek() > temp:
-    #         stack.push(additional_stack.pop())
-
-    #     additional_stack.push(temp)
-
-    # while not additional_stack.is_empty():
-    #     stack.push(additional_stack.pop())
 
 
 
