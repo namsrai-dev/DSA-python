@@ -11,6 +11,7 @@ class MyQueue:
         self.stack1.append(value)
         while len(self.stack2) != 0:
             self.stack1.append(self.stack2.pop())
+
     # WRITE ENQUEUE MEHTOD HERE #
     #                           #
     #                           #
