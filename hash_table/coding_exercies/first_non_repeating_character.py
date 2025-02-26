@@ -6,8 +6,13 @@
 ###########################
 
 def first_non_repeating_char(char):
-    ret = ""
-    return ret
+    my_dict = {}
+    for i in char:
+        my_dict[i] = my_dict.get(i, 0) + 1
+    for i in char:
+        if my_dict[i] == 1:
+            return i
+    return None
 
 print( first_non_repeating_char('leetcode') )
 
