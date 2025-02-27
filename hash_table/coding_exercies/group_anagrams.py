@@ -19,23 +19,20 @@ def group_anagrams(arr):
                     is_found = True
         if not is_found:
             second_arr.append([i])
+        # print(i, second_arr)
 
     return second_arr
     
-    # print("dict1:", dict1)
-    # print("dict2:", dict2)
-
-    # print("is equal:", dict1 == dict2)  # This should print False
 
 def to_dict(s):
     my_dict = {}
     for i in s:
-        my_dict[i] = True
+        my_dict[i] = my_dict.get(i, 0) + 1
     return my_dict  # Remove unnecessary print statements
         
 
 print("1st set:")
-print( group_anagrams(["eat", "tea", "tan", "ate", "nat", "bat"]) )
+print( group_anagrams(["hhhhu","tttti","tttit","hhhuh","hhuhh","tittt"]) )
 
 print("\n2nd set:")
 print( group_anagrams(["abc", "cba", "bac", "foo", "bar"]) )
