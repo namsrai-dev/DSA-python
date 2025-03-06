@@ -7,12 +7,12 @@
 
 def find_pairs(arr1, arr2, target):
     my_dict = {}
-    for i in arr2:
+    for i in arr1:
         my_dict[i] = True
     arr = []
-    for i in arr1:
+    for i in arr2:
         if target - i in my_dict:
-            arr.append((i, target - i))
+            arr.append((target - i, i))
     return arr
 
 
