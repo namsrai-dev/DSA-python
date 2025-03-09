@@ -21,50 +21,29 @@ class MaxHeap:
         while current > 0 and self.heap[current] > self.heap[self._parent(current)]:
             self._swap(current, self._parent(current))
             current = self._parent(current)
-    
-    # We will be writing the _sink_down method in the next exercise.
-    # But I need to include it here for the tests to work for remove.
-    # So, don't peek at this one here.  :-)
-    def _sink_down(self, index):
-        max_index = index
-        while True:
-            left_index = self._left_child(index)
-            right_index = self._right_child(index)
 
-            if (left_index < len(self.heap) and 
-                    self.heap[left_index] > self.heap[max_index]):
-                max_index = left_index
-
-            if (right_index < len(self.heap) and 
-                    self.heap[right_index] > self.heap[max_index]):
-                max_index = right_index
-
-            if max_index != index:
-                self._swap(index, max_index)
-                index = max_index
-            else:
-                return
-
+    # WRITE THE _SINK_DOWN METHOD HERE #
+    #                                  #
+    #                                  #
+    #                                  #
+    #                                  #
+    ####################################
+                       
     def remove(self):
         if len(self.heap) == 0:
             return None
+
         if len(self.heap) == 1:
             return self.heap.pop()
-        
+
         max_value = self.heap[0]
         self.heap[0] = self.heap.pop()
         self._sink_down(0)
+
         return max_value
-    
-    # WRITE THE REMOVE METHOD HERE #
-    #                              #
-    #                              #
-    #                              #
-    #                              #
-    ################################
-    
-    
-    
+        
+        
+
 myheap = MaxHeap()
 myheap.insert(95)
 myheap.insert(75)
@@ -95,4 +74,3 @@ print(myheap.heap)
     [75, 60, 65, 55, 50]
 
 """
-    
