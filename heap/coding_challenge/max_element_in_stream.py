@@ -56,6 +56,15 @@ class MaxHeap:
         return max_value
         
 
+def stream_max(nums):
+    max_heap = MaxHeap()
+    max_stream = []
+ 
+    for num in nums:
+        max_heap.insert(num)
+        max_stream.append(max_heap.heap[0])
+ 
+    return max_stream
 
 ###### WRITE STREAM_MAX FUNCTION HERE ######
 #                                          #
