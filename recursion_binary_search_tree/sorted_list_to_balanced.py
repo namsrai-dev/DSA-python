@@ -81,7 +81,7 @@ class BinarySearchTree:
                 
                 
     def sorted_list_to_bst(self, nums):
-        self.root = self.__sorted_list_to_bst(nums)
+        self.root = self.__sorted_list_to_bst(nums, 0, len(nums) - 1)
 
     def __r_insert(self, current_node, value):
         if current_node == None: 
@@ -95,7 +95,7 @@ class BinarySearchTree:
     def r_insert(self, value):
         if self.root == None: 
             self.root = Node(value)
-        self.__r_insert(self.root, value) 
+        self.__r_insert(self.root, value)
 
     def balanced_insert(self, arr):
         ret = []
@@ -110,12 +110,18 @@ class BinarySearchTree:
             if len(ret) != arr_len:
                 ret.append(arr[(median - 1) + i])
         return ret
-
-    def __sorted_list_to_bst(self, nums):
-        b_list = self.balanced_insert(nums)
-        print("b_list", b_list)
-        for i in b_list:
-            self.r_insert(i)
+    
+    def __sorted_list_to_bst(self, nums, left, right):
+        if left > right:
+            return None
+            
+        mid = (left + right) // 2
+        current = Node(nums[mid])
+        
+        current.left = self.__sorted_list_to_bst(nums, left, mid - 1)
+        current.right = self.__sorted_list_to_bst(nums, mid + 1, right)
+        
+        return current
         #   +====================================================+
         #   |               WRITE YOUR CODE HERE                 |
         #   | Description:                                       |
